@@ -1,117 +1,203 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>我的名片</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宋海康 · 个人名片</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    :root {
+        --c1: #6a5cff;
+        --c2: #9d4edd;
+        --ink: #2b2d42;
+        --muted: #7b7f9e;
+    }
 
-        .card {
-            background: #ffffff;
-            width: 100%;
-            max-width: 420px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            text-align: center;
-        }
+    html, body { height: 100%; }
 
-        .cover {
-            height: 120px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
+    body {
+        font-family: "Microsoft YaHei", "PingFang SC", -apple-system, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f067a4 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 28px;
+        overflow: hidden;
+        position: relative;
+    }
 
-        .avatar {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 5px solid #fff;
-            margin-top: -55px;
-            background: #f0f0f0;
-            object-fit: cover;
-        }
+    .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: .55;
+        animation: float 14s ease-in-out infinite;
+    }
+    .blob.b1 { width: 320px; height: 320px; background: #ffd86b; top: -80px; left: -60px; }
+    .blob.b2 { width: 360px; height: 360px; background: #4cc9f0; bottom: -120px; right: -80px; animation-delay: -7s; }
+    @keyframes float {
+        0%,100% { transform: translate(0,0) scale(1); }
+        50%     { transform: translate(30px,-25px) scale(1.12); }
+    }
 
-        .info {
-            padding: 20px 30px 30px;
-        }
+    .card {
+        position: relative;
+        z-index: 2;
+        background: rgba(255,255,255,.92);
+        backdrop-filter: blur(8px);
+        width: 100%;
+        max-width: 430px;
+        border-radius: 26px;
+        box-shadow: 0 30px 70px rgba(40, 20, 80, .35), 0 4px 14px rgba(0,0,0,.12);
+        overflow: hidden;
+        text-align: center;
+        animation: rise .8s cubic-bezier(.2,.8,.2,1) both;
+    }
+    @keyframes rise {
+        from { opacity: 0; transform: translateY(36px) scale(.97); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
 
-        h1 {
-            font-size: 26px;
-            color: #2d3748;
-            margin: 15px 0 5px;
-        }
+    .cover {
+        height: 132px;
+        background: linear-gradient(120deg, var(--c1), var(--c2));
+        position: relative;
+        overflow: hidden;
+    }
+    .cover::before, .cover::after {
+        content: ""; position: absolute; border-radius: 50%;
+        background: rgba(255,255,255,.18);
+    }
+    .cover::before { width: 120px; height: 120px; top: -46px; right: -26px; }
+    .cover::after  { width: 70px; height: 70px; bottom: -24px; left: 28px; }
 
-        .job {
-            color: #667eea;
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
+    .avatar-wrap {
+        position: relative;
+        width: 122px; height: 122px;
+        margin: -61px auto 0;
+        border-radius: 50%;
+        padding: 4px;
+        background: linear-gradient(135deg, var(--c1), var(--c2));
+        box-shadow: 0 12px 28px rgba(90, 50, 160, .32);
+    }
+    .avatar {
+        width: 100%; height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #f3f3f7;
+        border: 4px solid #fff;
+        display: block;
+    }
 
-        .bio {
-            color: #718096;
-            font-size: 14px;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
+    .info { padding: 18px 34px 34px; }
 
-        .contact {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+    h1 { font-size: 27px; color: var(--ink); margin: 14px 0 8px; letter-spacing: 1px; }
 
-        .contact a {
-            padding: 8px 18px;
-            background: #f7fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            color: #4a5568;
-            text-decoration: none;
-            font-size: 13px;
-            transition: all 0.3s;
-        }
+    .job {
+        display: inline-block;
+        font-size: 13px; font-weight: 600;
+        color: var(--c1);
+        background: rgba(106,92,255,.12);
+        padding: 5px 16px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+    }
 
-        .contact a:hover {
-            background: #667eea;
-            color: #fff;
-            border-color: #667eea;
-            transform: translateY(-2px);
-        }
-    </style>
+    .bio { color: var(--muted); font-size: 14px; line-height: 1.9; margin-bottom: 26px; }
+
+    .contact { display: flex; flex-direction: column; gap: 11px; text-align: left; }
+    .contact a {
+        display: flex; align-items: center; gap: 14px;
+        padding: 12px 16px;
+        background: #f7f8fc;
+        border: 1px solid #eceef6;
+        border-radius: 14px;
+        color: var(--ink); text-decoration: none;
+        font-size: 14px;
+        transition: transform .25s, box-shadow .25s, background .25s, border-color .25s;
+    }
+    .contact a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 22px rgba(90,50,160,.16);
+        background: #fff;
+        border-color: var(--c1);
+    }
+    .ico {
+        flex: 0 0 34px; width: 34px; height: 34px;
+        border-radius: 10px;
+        display: grid; place-items: center;
+    }
+    .ico svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; }
+    .ico.mail { background: linear-gradient(135deg,#ff6b6b,#f06595); }
+    .ico.wechat{ background: linear-gradient(135deg,#2ecc71,#27ae60); }
+    .ico.qq   { background: linear-gradient(135deg,#4dabf7,#228be6); }
+    .meta { display: flex; flex-direction: column; line-height: 1.35; }
+    .label { font-size: 12px; color: var(--muted); }
+    .value { font-weight: 600; letter-spacing: .3px; }
+
+    .foot {
+        margin-top: 22px; font-size: 11px; color: #b6bad0; letter-spacing: 2px;
+    }
+
+    @media (max-width: 420px) {
+        .info { padding: 16px 22px 26px; }
+    }
+    .hometown-btn {
+      display: block;
+      margin-top: 18px;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+      color: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .hometown-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(17, 153, 142, 0.4);
+    }
+</style>
 </head>
 <body>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+
     <div class="card">
         <div class="cover"></div>
-        < img class="avatar" src="https://via.placeholder.com/110" alt="头像">
+        <div class="avatar-wrap">
+            <!-- 想用咖啡杯那张图：把 src 换成 avatar.jpg，并先把图片上传到仓库根目录 -->
+            <img class="avatar" src="avatar.jpg" onerror="this.onerror=null;this.src='https://via.placeholder.com/122/9d4edd/ffffff?text=SHK';" alt="头像">
+        </div>
         <div class="info">
             <h1>宋海康</h1>
-            <p class="job">前端学习者</p >
+            <span class="job">前端学习者 · Coffee Lover</span>
             <p class="bio">
                 你好，欢迎来到我的主页。<br>
                 目前正在学习 HTML 和 CSS，<br>
                 喜欢折腾各种有意思的东西。
-            </p >
+            </p>
+
             <div class="contact">
-                <a href=" ">邮箱18417231014@163.com</a >
-                <a href="#">微信405448469SHK</a >
-                <a href="#">QQ405448469</a >
+                <a href="mailto:18417231014@163.com">
+                    <span class="ico mail"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>
+                    <span class="meta"><span class="label">邮箱</span><span class="value">18417231014@163.com</span></span>
+                </a>
+                <a href="#">
+                    <span class="ico wechat"><svg viewBox="0 0 24 24"><path d="M9 4C5 4 2 6.6 2 9.9c0 1.8 1 3.4 2.5 4.5L4 17l2.7-1.4c.7.2 1.5.4 2.3.4"></path><path d="M22 14.5c0-2.8-2.7-5-6-5s-6 2.2-6 5 2.7 5 6 5c.7 0 1.3-.1 1.9-.3L21 20l-.5-1.6c1-.8 1.5-2.3 1.5-3.9z"></path></svg></span>
+                    <span class="meta"><span class="label">微信</span><span class="value">405448469SHK</span></span>
+                </a>
+                <a href="https://wpa.qq.com/msgrd?v=3&uin=405448469&site=qq&menu=yes" target="_blank">
+                    <span class="ico qq"><svg viewBox="0 0 24 24"><path d="M12 3c3 0 5 2.2 5 5v3c0 .8.4 1.4.4 2.1 0 .9-1.2 1.1-1.6.6-.3 1.3-1.2 2.3-2.3 2.8.5.4.8.9.8 1.4 0 1.1-1.3 1.8-3.1 1.8s-3.1-.7-3.1-1.8c0-.5.3-1 .8-1.4-1.1-.5-2-1.5-2.3-2.8-.4.5-1.6.3-1.6-.6 0-.7.4-1.3.4-2.1V8c0-2.8 2-5 5-5z"></path></svg></span>
+                    <span class="meta"><span class="label">QQ</span><span class="value">405448469</span></span>
+                </a>
             </div>
+            <a class="hometown-btn" href=" hometown.html" target="_blank">🍵 欢迎来到我的家乡·湖南益阳</a >
+                        <div class="foot">MADE WITH COFFEE AND CODE</div>
         </div>
     </div>
 </body>

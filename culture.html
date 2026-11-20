@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人文底蕴 · 益阳</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        background: linear-gradient(135deg, #6a5cff, #9d4edd);
+        background-attachment: fixed;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 16px;
+    }
+    .card {
+        background: rgba(255,255,255,.96);
+        width: 100%;
+        max-width: 460px;
+        border-radius: 28px;
+        padding: 40px 32px;
+        box-shadow: 0 30px 80px rgba(0,0,0,.35);
+        animation: fadeUp .8s ease;
+    }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+        text-align: center;
+        font-size: 28px;
+        letter-spacing: 3px;
+        background: linear-gradient(135deg, #6a5cff, #9d4edd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 26px;
+    }
+    .item {
+        background: #f8f7ff;
+        border-radius: 16px;
+        padding: 18px 20px;
+        margin-bottom: 14px;
+        border-left: 4px solid #9d4edd;
+    }
+    .item h2 { font-size: 15px; color: #6a5cff; margin-bottom: 8px; }
+    .item p { font-size: 14px; line-height: 1.9; color: #5a5f7a; }
+    .hl { color: #6a5cff; font-weight: bold; }
+    .footer { text-align: center; margin-top: 26px; }
+    .back {
+        display: inline-block;
+        padding: 11px 30px;
+        background: linear-gradient(135deg, #0f9b8e, #2dd4a7);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 12px;
+        font-size: 14px;
+        transition: transform .2s, box-shadow .2s;
+    }
+    .back:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,155,142,.35); }
+</style>
+</head>
+<body>
+    <div class="card">
+        <h1>📜 人文底蕴</h1>
+
+        <div class="item">
+            <h2>三国古战场</h2>
+            <p>益阳是三国时期重要战略要地，<span class="hl">关羽单刀赴会</span>的故事就发生在这里，资水畔至今流传着那段江湖传奇。</p >
+        </div>
+
+        <div class="item">
+            <h2>文学之乡</h2>
+            <p>周谷城、周扬、周立波「<span class="hl">三周</span>」皆出自益阳，周立波的长篇小说《<span class="hl">山乡巨变</span>》以益阳清溪村为背景，是中国当代文学经典。</p >
+        </div>
+
+        <div class="item">
+            <h2>羽毛球之乡</h2>
+            <p>益阳为国家羽毛球训练基地所在地，先后培养出<span class="hl">4位奥运冠军</span>、117项世界冠军，被称为「羽毛球冠军的摇篮」。</p >
+        </div>
+
+        <div class="item">
+            <h2>院士故里</h2>
+            <p>这片土地走出过<span class="hl">15名两院院士</span>，文风昌盛、人才辈出，是湖湘文化的重要发源地之一。</p >
+        </div>
+
+        <div class="footer">
+            <a class="back" href="hometown.html ">← 返回家乡页</a >
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>城市概况 · 益阳</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        background: url('img/yiyang-map.jpg') no-repeat right center fixed;
+        background-size: 70%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .card {
+        background: rgba(255,255,255,.75);
+        width: 100%;
+        max-width: 460px;
+        border-radius: 28px;
+        padding: 40px 32px;
+        box-shadow: 0 30px 80px rgba(0,0,0,.35);
+        animation: fadeUp .8s ease;
+        backdrop-filter: blur(2px);
+    }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+        text-align: center;
+        font-size: 28px;
+        letter-spacing: 3px;
+        background: linear-gradient(135deg, #0f9b8e, #2dd4a7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 26px;
+    }
+    .item {
+        background: rgba(255,255,255,.6);
+        border-radius: 16px;
+        padding: 18px 20px;
+        margin-bottom: 14px;
+        border-left: 4px solid #2dd4a7;
+    }
+    .item h2 { font-size: 15px; color: #0f9b8e; margin-bottom: 8px; }
+    .item p { font-size: 14px; line-height: 1.9; color: #5a5f7a; }
+    .hl { color: #0f9b8e; font-weight: bold; }
+    .footer { text-align: center; margin-top: 26px; }
+    .back {
+        display: inline-block;
+        padding: 11px 30px;
+        background: linear-gradient(135deg, #6a5cff, #9d4edd);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 12px;
+        font-size: 14px;
+        transition: transform .2s, box-shadow .2s;
+    }
+    .back:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(106,92,255,.35); }
+</style>
+</head>
+<body>
+    <div class="card">
+        <h1>🏞️ 城市概况</h1>
+
+        <div class="item">
+            <h2>地理位置</h2>
+            <p>益阳地处湖南省中北部，<span class="hl">洞庭湖南岸、资水中游</span>，东临长沙，南接娄底，西连常德，北靠岳阳，是长株潭都市圈向西辐射的门户。</p >
+        </div>
+
+        <div class="item">
+            <h2>行政区划</h2>
+            <p>全市辖<span class="hl">2区、1个县级市、3个县</span>：资阳区、赫山区、沅江市、安化县、桃江县、南县，另设大通湖管理区。市政府驻赫山区。</p >
+        </div>
+
+        <div class="item">
+            <h2>面积人口</h2>
+            <p>总面积<span class="hl">1.23万平方公里</span>，常住人口约369万，城镇化率稳步提升，是长江中下游城市群重要成员。</p >
+        </div>
+
+        <div class="item">
+            <h2>城市名片</h2>
+            <p>因明清时期银矿开采与商贸繁盛，素有「<span class="hl">银城</span>」之称；又因楠竹资源丰富，被誉为「<span class="hl">中国竹子之乡</span>」。</p >
+        </div>
+
+        <div class="footer">
+            <a class="back" href="hometown.html ">← 返回家乡页</a >
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的家乡 · 湖南益阳</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        background: linear-gradient(135deg, #0f9b8e 0%, #38ef7d 50%, #2dd4a7 100%);
+        background-attachment: fixed;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 16px;
+        color: #2b2d42;
+    }
+    .card {
+        background: rgba(255,255,255,.96);
+        width: 100%;
+        max-width: 460px;
+        border-radius: 28px;
+        padding: 42px 32px 36px;
+        box-shadow: 0 30px 80px rgba(0,0,0,.35);
+        animation: fadeUp .8s ease;
+    }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    .header { text-align: center; margin-bottom: 30px; }
+    .header h1 {
+        font-size: 30px;
+        letter-spacing: 3px;
+        background: linear-gradient(135deg, #0f9b8e, #2dd4a7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 12px;
+    }
+    .tag {
+        display: inline-block;
+        font-size: 13px;
+        color: #0f9b8e;
+        background: rgba(15,155,142,.1);
+        padding: 6px 18px;
+        border-radius: 999px;
+        letter-spacing: 2px;
+    }
+    .section {
+        background: #f7faf9;
+        border-radius: 18px;
+        margin-bottom: 14px;
+        border-left: 4px solid #2dd4a7;
+        overflow: hidden;
+        transition: box-shadow .25s;
+    }
+    .section:hover { box-shadow: 0 8px 24px rgba(15,155,142,.15); }
+    .section-title {
+        padding: 18px 22px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #0f9b8e;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+    }
+    .arrow { font-size: 12px; color: #9aa3b8; transition: transform .3s; }
+    .section.open .arrow { transform: rotate(180deg); }
+    .section-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .4s ease, padding .4s ease;
+        padding: 0 22px;
+    }
+    .section.open .section-body { max-height: 600px; padding: 0 22px 20px; }
+    .section-body p {
+        font-size: 14px;
+        line-height: 1.9;
+        color: #5a5f7a;
+        margin-bottom: 14px;
+    }
+    .highlight { color: #0f9b8e; font-weight: bold; }
+    .link-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 20px;
+        background: linear-gradient(135deg, #0f9b8e, #2dd4a7);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        transition: transform .2s, box-shadow .2s;
+    }
+    .link-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(15,155,142,.4);
+    }
+    .footer { text-align: center; margin-top: 28px; }
+    .back {
+        display: inline-block;
+        padding: 12px 32px;
+        background: linear-gradient(135deg, #6a5cff, #9d4edd);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 14px;
+        font-size: 15px;
+        letter-spacing: 1px;
+        transition: transform .2s, box-shadow .2s;
+    }
+    .back:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 26px rgba(106,92,255,.4);
+    }
+    @media (max-width: 420px) {
+        .card { padding: 32px 22px 28px; }
+        .header h1 { font-size: 26px; }
+    }
+</style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h1>湖南益阳</h1>
+            <span class="tag">竹乡 · 银城 · 黑茶之乡</span>
+        </div>
+
+        <div class="section open">
+            <div class="section-title" onclick="toggle(this)">
+                <span>🏞️ 城市概况</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="section-body">
+                <p>
+                    益阳位于湖南省中北部，<span class="highlight">洞庭湖南岸、资水之滨</span>，
+                    总面积1.23万平方公里，常住人口约369万。
+                    自秦代置县以来两千余年未更名，素有「<span class="highlight">银城</span>」之誉。
+                </p >
+                <a class="link-btn" href="city.html ">查看城市详情 →</a >
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title" onclick="toggle(this)">
+                <span>📜 人文底蕴</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="section-body">
+                <p>
+                    楚文化、三国文化、湖湘文化兼容并蓄，是关羽<span class="highlight">单刀赴会</span>的古战场。
+                    这里是「<span class="highlight">文学之乡</span>」，也是「<span class="highlight">羽毛球之乡</span>」。
+                </p >
+                <a class="link-btn" href="culture.html">走进人文历史 →</a >
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title" onclick="toggle(this)">
+                <span>🍃 物产风光</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="section-body">
+                <p>
+                    「<span class="highlight">黑茶之源</span>」安化黑茶制作技艺入选联合国人类非遗；
+                    「<span class="highlight">竹海之都</span>」桃江楠竹连绵成海。
+                </p >
+                <a class="link-btn" href="product.html">探索物产风光 →</a >
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title" onclick="toggle(this)">
+                <span>🗣️ 家乡话</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="section-body">
+                <p>
+                    益阳话属湘语长益片，「<span class="highlight">恰饭</span>」是吃饭，
+                    「<span class="highlight">莫得</span>」是没有，语调软糯带点江湖气。
+                </p >
+                <a class="link-btn" href="dialect.html">听听家乡话 →</a >
+            </div>
+        </div>
+
+        <div class="footer">
+            <a class="back" href="index.html">← 返回我的主页</a >
+        </div>
+    </div>
+
+    <script>
+        function toggle(el) {
+            el.parentElement.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
