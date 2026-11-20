@@ -1,11 +1,118 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>我的名片</title>
+<html lang="zh-CN">
+<head>
     <meta charset="utf-8">
-  </head>
-  <body>
-    <hi>你好，我是coffee</hi>
-    
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我的名片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cover {
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            margin-top: -55px;
+            background: #f0f0f0;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 20px 30px 30px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #2d3748;
+            margin: 15px 0 5px;
+        }
+
+        .job {
+            color: #667eea;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .bio {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .contact a {
+            padding: 8px 18px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .contact a:hover {
+            background: #667eea;
+            color: #fff;
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="cover"></div>
+        < img class="avatar" src="https://via.placeholder.com/110" alt="头像">
+        <div class="info">
+            <h1>宋海康</h1>
+            <p class="job">前端学习者</p >
+            <p class="bio">
+                你好，欢迎来到我的主页。<br>
+                目前正在学习 HTML 和 CSS，<br>
+                喜欢折腾各种有意思的东西。
+            </p >
+            <div class="contact">
+                <a href=" ">邮箱18417231014@163.com</a >
+                <a href="#">微信405448469SHK</a >
+                <a href="#">QQ405448469</a >
+            </div>
+        </div>
+    </div>
+</body>
 </html>
